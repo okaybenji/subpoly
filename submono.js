@@ -35,7 +35,6 @@ var Monosynth = function(audioCtx, config) {
   
   //low-pass filter cutoff defaults
   synth.cutoff          = synth.filter.frequency;
-  synth.cutoff.value    = config.cutoff.value     || 7500; //in hertz
   synth.cutoff.maxValue = config.cutoff.maxValue  || 7500; //in hertz
   synth.cutoff.attack   = config.cutoff.attack    || 0.1; //in seconds
   synth.cutoff.decay    = config.cutoff.decay     || 2.5; //in seconds
@@ -45,6 +44,7 @@ var Monosynth = function(audioCtx, config) {
   synth.osc = audioCtx.createOscillator();
   synth.pan = audioCtx.createPanner();
   synth.pan.panningModel = 'equalpower';
+  synth.pan.setPosition(0, 0, 1); // start with stereo image centered
   synth.osc.connect(this.pan);
   synth.pan.connect(synth.filter);
   synth.osc.start(0);
