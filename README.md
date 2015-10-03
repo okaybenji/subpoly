@@ -23,7 +23,7 @@ var synth = new Polysynth(audioCtx);
 ```
 synth.voices[i].maxGain = 0.5;        // out of 1
 synth.voices[i].attack = 1.0;         // in seconds
-synth.voices[i].pitch(440);           // in Hz
+synth.voices[i].pitch(440);           // in hertz
 synth.voices[i].waveform('sawtooth'); // or sine, triangle, square
 ```
 
@@ -31,7 +31,7 @@ synth.voices[i].waveform('sawtooth'); // or sine, triangle, square
 ```
 synth.maxGain(0.5);         // out of 1
 synth.attack(1.0);          // in seconds
-synth.pitch(440);           // in Hz
+synth.pitch(440);           // in hertz
 synth.waveform('sawtooth'); // or sine, triangle, square
 ```
 
