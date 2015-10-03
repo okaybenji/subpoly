@@ -1,0 +1,15 @@
+div {
+  display: inline-block;
+  width: 50px;
+  height: 200px;
+  border: 1px solid black;
+  position: absolute;
+  z-index: 0;
+}
+
+.black {
+  background: black;
+  height: 125px;
+  width: 35px;
+  z-index: 1;
+}
