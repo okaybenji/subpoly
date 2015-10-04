@@ -51,10 +51,10 @@ var config = {
   stereoWidth: 0.5,     // out of 1
   numVoices: 5,         // unlimited
   cutoff: {
-    maxValue: 7500,     // in hertz
+    maxFrequency: 7500, // in hertz
     attack: 0.1,        // in seconds
     decay: 2.5,         // in seconds
-    sustain: 0.2        // 0-5; maxValue multiplied by this
+    sustain: 0.2        // 0-5; maxFrequency multiplied by this
   }
 };
 
