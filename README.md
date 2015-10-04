@@ -62,4 +62,4 @@ var synth = new Polysynth(audioCtx, config);
 ```
 
 ### demo
-[musical typing](http://okaybenji.github.io/subpoly/)
+[musical typing](http://okaybenji.github.io/web-synth/)
