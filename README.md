@@ -1,5 +1,5 @@
 # subpoly
-a WebAudio subtractive, polyphonic synthesizer
+a Web Audio subtractive, polyphonic synthesizer
 
 ### create a synth
 ```
