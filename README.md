@@ -1,33 +1,39 @@
 # subpoly
-a Web Audio subtractive, polyphonic synthesizer
+A Web Audio subtractive, polyphonic synthesizer. Just need one voice? Check out [submono](https://github.com/okaybenji/submono)!
 
-### create a synth
+### Create a synth.
 ```
 var audioCtx = new AudioContext();
 var synth = new Polysynth(audioCtx);
 ```
 
-### play a note
+**Your new `synth` has an array of [submono](https://github.com/okaybenji/submono) `voices` attached.**
+
+### Play a note.
 `synth.voices[i].start();`
 
-### stop playing
+### Stop playing.
 `synth.voices[i].stop();`
 
-### play all notes
+### Play all voices.
 `synth.start();`
 
-### stop all notes
+### Stop all notes.
 `synth.stop();`
 
-### change the volume, attack duration, frequency, waveform for a voice...
+### Use methods to access a voice's pitch and waveform...
 ```
-synth.voices[i].maxGain = 0.5;        // out of 1
-synth.voices[i].attack = 1.0;         // in seconds
-synth.voices[i].pitch(440);           // in hertz
-synth.voices[i].waveform('sawtooth'); // or sine, triangle, square
+synth.voices[i].pitch(440);              // in hertz
+console.log(synth.voices[i].waveform()); // 'sawtooth'
 ```
 
-### or all at once...
+### ...get or set any other properties directly.
+```
+synth.voices[i].maxGain = 0.5; // out of 1
+synth.voices[i].attack = 1.0;  // in seconds
+```
+
+### Use methods to set any property for all voices at once.
 ```
 synth.maxGain(0.5);         // out of 1
 synth.attack(1.0);          // in seconds
@@ -35,10 +41,10 @@ synth.pitch(440);           // in hertz
 synth.waveform('sawtooth'); // or sine, triangle, square
 ```
 
-### set the stereo width
+### Set the stereo width.
 `synth.width(1.0); // out of 1`
 
-### configure any or all the properties on initialization
+### Configure any or all the properties on initialization.
 ```
 var config = {
   waveform: 'sawtooth', // or sine, triangle, square
@@ -61,5 +67,5 @@ var config = {
 var synth = new Polysynth(audioCtx, config);
 ```
 
-### demo
+### Demo
 [musical typing](http://okaybenji.github.io/web-synth/)
