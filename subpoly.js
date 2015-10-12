@@ -18,7 +18,7 @@ var Polysynth = function Polysynth(audioCtx, config) {
       synth.voices.push(new Monosynth(audioCtx, config));
     }
 
-    synth.stereoWidth = config.stereoWidth  || 0.5; // out of 1
+    synth.stereoWidth = config.stereoWidth || 0.5; // out of 1
     synth.width(synth.stereoWidth);
 
     return synth;
