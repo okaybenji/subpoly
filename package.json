@@ -1,0 +1,31 @@
+{
+  "name": "subpoly",
+  "version": "0.1.0",
+  "description": "a Web Audio subtractive, polyphonic synthesizer",
+  "main": "subpoly.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okaybenji/subpoly.git"
+  },
+  "keywords": [
+    "synth",
+    "synthesizer",
+    "web",
+    "audio",
+    "subtractive",
+    "polyphonic",
+    "synthesis"
+  ],
+  "author": "Benji Kay <okaybenji@gmail.com> (http://benjikay.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okaybenji/subpoly/issues"
+  },
+  "homepage": "https://github.com/okaybenji/subpoly",
+  "dependencies": {
+    "submono": "^0.1.0"
+  }
+}
