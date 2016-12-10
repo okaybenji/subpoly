@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Subpoly by okaybenji</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Subpoly</h1>
+      <h2 class="project-tagline">a Web Audio subtractive, polyphonic synthesizer</h2>
+      <a href="https://github.com/okaybenji/subpoly" class="btn">View on GitHub</a>
+      <a href="https://github.com/okaybenji/subpoly/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/okaybenji/subpoly/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="subpoly" class="anchor" href="#subpoly" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>subpoly</h1>
+
+<p>A Web Audio subtractive, polyphonic synthesizer. Just need one voice? Check out <a href="https://github.com/okaybenji/submono">submono</a>!</p>
+
+<h3>
+<a id="create-a-synth" class="anchor" href="#create-a-synth" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a synth.</h3>
+
+<pre><code>var audioCtx = new AudioContext();
+var synth = new Polysynth(audioCtx);
+</code></pre>
+
+<p><strong>Your new <code>synth</code> has an array of <a href="https://github.com/okaybenji/submono">submono</a> <code>voices</code> attached.</strong></p>
+
+<h3>
+<a id="play-a-note" class="anchor" href="#play-a-note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Play a note.</h3>
+
+<p><code>synth.voices[i].start();</code></p>
+
+<h3>
+<a id="stop-playing" class="anchor" href="#stop-playing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stop playing.</h3>
+
+<p><code>synth.voices[i].stop();</code></p>
+
+<h3>
+<a id="play-all-voices" class="anchor" href="#play-all-voices" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Play all voices.</h3>
+
+<p><code>synth.start();</code></p>
+
+<h3>
+<a id="stop-all-notes" class="anchor" href="#stop-all-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stop all notes.</h3>
+
+<p><code>synth.stop();</code></p>
+
+<h3>
+<a id="use-methods-to-access-a-voices-pitch-and-waveform" class="anchor" href="#use-methods-to-access-a-voices-pitch-and-waveform" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use methods to access a voice's pitch and waveform...</h3>
+
+<pre><code>synth.voices[i].pitch(440);              // in hertz
+console.log(synth.voices[i].waveform()); // 'sawtooth'
+</code></pre>
+
+<h3>
+<a id="get-or-set-any-other-properties-directly" class="anchor" href="#get-or-set-any-other-properties-directly" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>...get or set any other properties directly.</h3>
+
+<pre><code>synth.voices[i].maxGain = 0.5; // out of 1
+synth.voices[i].attack = 1.0;  // in seconds
+</code></pre>
+
+<h3>
+<a id="use-methods-to-set-any-property-for-all-voices-at-once" class="anchor" href="#use-methods-to-set-any-property-for-all-voices-at-once" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use methods to set any property for all voices at once.</h3>
+
+<pre><code>synth.maxGain(0.5);         // out of 1
+synth.attack(1.0);          // in seconds
+synth.pitch(440);           // in hertz
+synth.waveform('sawtooth'); // or sine, triangle, square
+</code></pre>
+
+<h3>
+<a id="set-the-stereo-width" class="anchor" href="#set-the-stereo-width" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set the stereo width.</h3>
+
+<p><code>synth.width(1.0); // out of 1</code></p>
+
+<h3>
+<a id="configure-any-or-all-the-properties-on-initialization" class="anchor" href="#configure-any-or-all-the-properties-on-initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure any or all the properties on initialization.</h3>
+
+<pre><code>var config = {
+  waveform: 'sawtooth', // or sine, triangle, square
+  pitch: 440,           // in hertz
+  maxGain: 0.5,         // out of 1
+  attack: 0.1,          // in seconds
+  decay: 0.0,           // in seconds
+  sustain: 1.0,         // out of 1
+  release: 0.8,         // in seconds
+  stereoWidth: 0.5,     // out of 1
+  numVoices: 5,         // unlimited
+  cutoff: {
+    maxFrequency: 7500, // in hertz
+    attack: 0.1,        // in seconds
+    decay: 2.5,         // in seconds
+    sustain: 0.2        // 0-5; maxFrequency multiplied by this
+  }
+};
+
+var synth = new Polysynth(audioCtx, config);
+</code></pre>
+
+<h3>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h3>
+
+<p><a href="http://okaybenji.github.io/web-synth/">musical typing</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/okaybenji/subpoly">Subpoly</a> is maintained by <a href="https://github.com/okaybenji">okaybenji</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
